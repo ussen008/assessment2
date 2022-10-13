@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Комплексное наблюдение урока{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4 mb-4">
+        <h2 class="text-center">Комплексное наблюдение урока</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button class='btn btn-success'>Сохранить</button>
+        </form>
+    </div>
+
+{% endblock %}

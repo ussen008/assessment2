@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Страница входа{% endblock title %}
+
+{% block content %}
+<h1> Вход </h1> 
+<div class="row mt-4">
+
+    <div class="col-md-4 offset-md-4 border p-3">
+         <form method="post">
+            {% csrf_token %}
+            {{ form|crispy}}
+            <input type="submit" value="Вход" class="btn btn-success mb-2">
+         </form>
+         <div class="border-top pt-3">
+            <small class="text-muted">
+                Нужен аккаунт? <a class="ml-2" href="{% url 'signup' %}">Регистрация</a>
+            <small>
+         </div>
+    </div>
+</div>
+
+{% endblock content %}
