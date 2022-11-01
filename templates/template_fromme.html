@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+
+		
+		{% if data_from_me.first %}
+		<div class="col-md-6">
+			<h3 class="text-center mt-3">Комплексное наблюдение урока</h3>
+			<table class="table mt-3">
+				<thead>
+				  <tr>
+					<th scope="col">№</th>
+					<th scope="col">Тема урока</th>
+					<th scope="col">Учитель(ница)</th>
+					<th scope="col">Наблюдатель</th>
+				  </tr>
+				</thead>
+				<tbody>
+					
+						{% for first in data_from_me.first %}
+				  <tr>
+					<th scope="row">{{first.id}}</th>
+					<td>{{first.lesson_title}}</td>
+					<td>{{first.teacher}}</td>
+					<td>{{first.observer}}</td>
+				  </tr>
+						  {% endfor %}
+					
+				  </tbody>
+			  </table>
+		</div>
+		
+		{% endif %}
+
+		{% if data_from_me.second %}
+		<div class="col-md-6">
+			<h3 class="text-center mt-3">Преподование</h3>
+			<table class="table mt-3">
+				<thead>
+				  <tr>
+					<th scope="col">№</th>
+					<th scope="col">Тема урока</th>
+					<th scope="col">Учитель(ница)</th>
+					<th scope="col">Наблюдатель</th>
+				  </tr>
+				</thead>
+				<tbody>
+					
+					{% for second in data_from_me.second %}
+				  <tr>
+					<th scope="row">{{second.id}}</th>
+					<td>{{second.lesson_title}}</td>
+					<td>{{second.teacher}}</td>
+					<td>{{second.observer}}</td>
+				  </tr>
+						  {% endfor %}
+					
+				  </tbody>
+			  </table>
+		</div>
+		
+		{% endif %}
+		
+		{% if data_from_me.second %}
+		<div class="col-md-6">
+			<h3 class="text-center mt-3">Планирование</h3>
+			<table class="table">
+				<thead>
+				  <tr>
+					<th scope="col">№</th>
+					<th scope="col">Тема урока</th>
+					<th scope="col">Учитель(ница)</th>
+					<th scope="col">Наблюдатель</th>
+				  </tr>
+				</thead>
+				<tbody>
+					
+					{% for second in data_from_me.second %}
+				  <tr>
+					<th scope="row">{{second.id}}</th>
+					<td>{{second.lesson_title}}</td>
+					<td>{{second.teacher}}</td>
+					<td>{{second.observer}}</td>
+				  </tr>
+						  {% endfor %}
+					
+				  </tbody>
+			  </table>
+		</div>
+		
+		{% endif %}
+
+		{% if data_from_me.second %}
+		<div class="col-md-6">
+			<table class="table">
+				<thead>
+				  <tr>
+					<th scope="col">№</th>
+					<th scope="col">Тема урока</th>
+					<th scope="col">Учитель(ница)</th>
+					<th scope="col">Наблюдатель</th>
+				  </tr>
+				</thead>
+				<tbody>
+					
+					{% for second in data_from_me.second %}
+				  <tr>
+					<th scope="row">{{second.id}}</th>
+					<td>{{second.lesson_title}}</td>
+					<td>{{second.teacher}}</td>
+					<td>{{second.observer}}</td>
+				  </tr>
+						  {% endfor %}
+					
+				  </tbody>
+			  </table>
+		</div>
+		
+		{% endif %}
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+	{% comment %} {% if data_from_me.first %}
+		{% for comprehensive in data_from_me.first %}
+			<p>{{comprehensive.teacher.get_full_name}}</p>
+			<p>{{comprehensive.observer}}</p>
+		{% endfor %}
+	{% else %}
+		<p>У вас нету данные по этому форму</p>
+	{% endif %} {% endcomment %}
+
+
+
+{% endblock %}

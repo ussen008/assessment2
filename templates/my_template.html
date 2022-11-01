@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			{% if data_for_me.first and data_for_me.second %}
+			<div class="col-md-6">
+				<table class="table">
+					<thead>
+					  <tr>
+						<th scope="col">№</th>
+						<th scope="col">Тема урока</th>
+						<th scope="col">Учитель(ница)</th>
+						<th scope="col">Наблюдатель</th>
+					  </tr>
+					</thead>
+					<tbody>
+						
+							{% for first in data_for_me.first %}
+					  <tr>
+						<th scope="row">{{first.id}}</th>
+						<td>{{first.lesson_title}}</td>
+						<td>{{first.teacher}}</td>
+						<td>{{first.observer}}</td>
+					  </tr>
+					  		{% endfor %}
+						
+					  </tbody>
+				  </table>
+			</div>
+			<div class="col-md-6">
+				<table class="table">
+					<thead>
+					  <tr>
+						<th scope="col">№</th>
+						<th scope="col">Тема урока</th>
+						<th scope="col">Учитель(ница)</th>
+						<th scope="col">Наблюдатель</th>
+					  </tr>
+					</thead>
+					<tbody>
+						
+							{% for first in data_for_me.first %}
+					  <tr>
+						<th scope="row">{{second.id}}</th>
+						<td>{{second.lesson_title}}</td>
+						<td>{{second.teacher}}</td>
+						<td>{{second.observer}}</td>
+					  </tr>
+					  		{% endfor %}
+						
+					  </tbody>
+				  </table>
+			</div>
+			{% else %}
+				div
+			{% endif %}
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>	
+		</div>
+	</div>
+
+
+
+
+
+	{% comment %} {% if data_for_me.first %}
+		{% for comprehensive in data_for_me.first %}
+			<p>{{comprehensive.teacher}}</p>
+			<p>{{comprehensive.observer}}</p>
+		{% endfor %}
+	{% else %}
+		<p>У вас нету данные по этому форму</p>
+	{% endif %} {% endcomment %}
+
+
+
+{% endblock %}

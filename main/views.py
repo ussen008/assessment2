@@ -6,6 +6,7 @@ from .forms import CustomUserCreationForm
 from django.views.generic import TemplateView
 from django.views import View
 from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 from .models import *
 # Create your views here.
 
@@ -51,3 +52,32 @@ class AssessmentToMe(View):
     def get_queryset(self):
         return super().get_queryset(ComprehensiveControl.objects.filter(teacher=request.user))
     
+    
+
+class AssessmentToMe(ListView):
+    context_object_name = "data_for_me"
+    template_name = "my_template.html"
+
+    def get_queryset(self):
+        myset = {
+            "first": ComprehensiveControl.objects.filter(teacher=self.request.user),
+            "second": Teaching.objects.filter(teacher=self.request.user),
+            "third": PlanningLesson.objects.filter(teacher=self.request.user),
+            "forth": AssessmentStudentLearning.objects.filter(teacher=self.request.user),
+           
+        }
+        return myset
+
+class AssessmentFromMe(ListView):
+    context_object_name = "data_from_me"
+    template_name = "template_fromme.html"
+
+    def get_queryset(self):
+        myset = {
+            "first": ComprehensiveControl.objects.filter(observer=self.request.user),
+            "second": Teaching.objects.filter(observer=self.request.user),
+            "third": PlanningLesson.objects.filter(observer=self.request.user),
+            "forth": AssessmentStudentLearning.objects.filter(observer=self.request.user),
+           
+        }
+        return myset

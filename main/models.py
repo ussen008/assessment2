@@ -164,6 +164,7 @@ class AssessmentStudentLearning(models.Model):
 	lesson_title  = models.CharField(max_length=255, verbose_name='Тема урока')
 	teacher = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Выберите учителя')
 	goal_prof_develop = models.CharField(max_length=255, verbose_name='Цель профессионального развития на учебный год')
+	observer = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING,  verbose_name='Наблюдатель', related_name='+')
 	teacher_observe = models.BooleanField(choices=BOOL_CHOICES, verbose_name='Учитель отслеживает вовлеченность каждого учащегося')
 	teacher_offers = models.BooleanField(choices=BOOL_CHOICES, verbose_name='Учитель предлагает учащимся критерии и дескрипторы оценивания в соответствии с целями обучения')
 	teacher_support = models.BooleanField(choices=BOOL_CHOICES, verbose_name='Учитель поддерживает обучение учащихся соответствующими приемами формативного оценивания')
